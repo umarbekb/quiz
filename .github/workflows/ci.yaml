@@ -1,0 +1,22 @@
+name: Quiz project
+on: push
+
+jobs:
+  first:
+    name: Install ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update
+        run: sudo apt update
+      - name: check out repo
+        uses: action/checkout@v3
+      - name: Install python3-pip
+        run: sudo apt install python3-pip
+      - name: Requirements install
+        run: pip install -r requirements.txt
+      - name: Run test
+        env:
+          DJANGO_SETTINGS_MODULE: QuizProject.settings.local
+          SECRET_KEY: django-insecure-m^--t%=9i7%et=o7vlet#wc*3#_0elu8m60b8ez75pt112v8us
+        run: python manage.py test
+
