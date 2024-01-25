@@ -14,6 +14,7 @@ class TestQuizTypeSerializer(TestCase):
 
         assert serializer['id'] == self.quiz_type.id
 
+
 class TestHelloWord(TestCase):
     def setUp(self) -> None:
         self.url = reverse('hello_world')
@@ -22,6 +23,7 @@ class TestHelloWord(TestCase):
         response = self.client.get(self.url)
         assert response.status_code == 200
         assert response.json()['message'] == 'hello world'
+
 
 class TestQuizTypeView(TestCase):
     def setUp(self):
@@ -58,4 +60,3 @@ class TestQuizTypeView(TestCase):
         response = self.client.post(self.url, data=pyload)
 
         assert response.status_code == 400
-

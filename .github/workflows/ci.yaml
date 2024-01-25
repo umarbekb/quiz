@@ -40,4 +40,6 @@ jobs:
           SQL_PASSWORD: QuizProject123
           SQL_HOST: localhost
           SLQ_PORT: 5432
-        run: python manage.py test
+        run:
+          python manage.py test
+          python manage.py migrate
