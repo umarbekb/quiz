@@ -2,10 +2,10 @@ name: Quiz project
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   first:
@@ -39,7 +39,9 @@ jobs:
           SQL_USER: quiz
           SQL_PASSWORD: QuizProject123
           SQL_HOST: localhost
-          SLQ_PORT: 5432
+          SQL_PORT: 5432
         run:
-          python manage.py test
           python manage.py migrate
+          python manage.py test
+
+
